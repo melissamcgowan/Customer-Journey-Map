@@ -1,0 +1,2140 @@
+{
+  "sheet1": {
+    "meta": {
+      "doc_name": "Customer Success Lifecycle Journey",
+      "objective": "To clearly identify the proactive activities of the TAM during the lifecycle of the customer journey",
+      "champion": "Matt",
+      "stakeholders": "Gerhard, Zack, Jessica, Karina, Kris, Paolo"
+    },
+    "stages": [
+      {
+        "title": "NEW SALES DEALS",
+        "color": "#660000",
+        "columns": [
+          {
+            "col": "B",
+            "event": "Add to GS",
+            "trigger": "Oppty Closed/Won",
+            "frequency": null,
+            "objectives": [
+              "Allow for account tracking"
+            ],
+            "who": [
+              {
+                "role": "CX OPS",
+                "note": null
+              }
+            ],
+            "key_activities": [],
+            "templates": [],
+            "systems": [],
+            "celebration": null,
+            "metrics": [],
+            "digital_assets": null
+          },
+          {
+            "col": "C",
+            "event": "Assign a TAM",
+            "trigger": "Oppty is Closed/Won in SFDC, ARR is above lower ARR limit $125k",
+            "frequency": null,
+            "objectives": [
+              "Identify what customer journey the customer will have if they are with a TAM or not"
+            ],
+            "who": [
+              {
+                "role": "CX Leadership",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "CX Leadership notified that a deal meeting min ARR requirements has changed to Closed/Won in SFDC",
+              "TAM name entered into SFDC/GS",
+              "Notification sent to TAM of the new assignment",
+              "If no TAM assignment add to Digital TAM group"
+            ],
+            "templates": [
+              "Notification provided to the AE, TAM including outline of next steps"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "% Assignment of TAM",
+              "Days to first intro call with customer",
+              "Onboarding CSAT Score - comparison between TAM assigned to TAM not assigned"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "D",
+            "event": "Intro to Onboarding (Customer Introduction per onboarding framework)",
+            "trigger": "Oppty Closed/Won",
+            "frequency": null,
+            "objectives": [
+              "Begin establishing rapport with the customer",
+              "Align expectations on onboarding with the customer",
+              "Improve customer satisfaction",
+              "Reduce onboarding risks"
+            ],
+            "who": [
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "AE coordinates an initial call with the onboarding engineer and TAM",
+              "AE leads call with Customer (may vary for existing opps with TAM already engaged)",
+              "AE sends a follow up email"
+            ],
+            "templates": [
+              "Email Template",
+              "Standardized agenda",
+              "Standardized Slide Deck"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Onboarding CSAT score"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "E",
+            "event": "Sales Account Introduction to TAM/OE",
+            "trigger": "Oppty Closed/Won, TAM assigned",
+            "frequency": null,
+            "objectives": [
+              "Highlight inherent risks early",
+              "Understand customer desired outcomes and align on how we're going to meet them",
+              "Avoid delays in onboarding",
+              "Build significant relationship with the customers early",
+              "TAM and OE develop account awareness, background, etc."
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": "Custom Solutions only"
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Sales Rep Fills out the sales handover form",
+              "Form sent to OE for review (copying TAM)",
+              "TAM schedules a call with the sales and onboarding team to discuss form related questions (follow up)",
+              "OE follows up with account executive or PS team to ensure all documents are collected (SOW, etc)",
+              "TAM - Update critical customer data fields in GS",
+              "OE completes checklist and marks related task complete (TAM kept in the loop)",
+              "AE sends email introduction to the Customer (intro to OE & TAM)"
+            ],
+            "templates": [
+              "Sales Handover form"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Sales handoffs/Sales deals won",
+              "% Sales Handover forms Completed",
+              "CSAT increase",
+              "Increase Revenue",
+              "Decrease time to revenue",
+              "Increase Expansion Selling"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "F",
+            "event": "AE Introduction of Customer Success process to customer (Team Structure including TAM and OE)",
+            "trigger": "Oppty Closed/Won, TAM assigned, Sales Intro Completed",
+            "frequency": null,
+            "objectives": [
+              "Make sure the customer feels important",
+              "To increase the success and speed of onboarding/adoption",
+              "Avoid delays in onboarding",
+              "Improve customer satisfaction"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Welcome email message from your CX exec (Customer Welcome email template)",
+              "Sales rep sends out an introduction email to Onboarding Engineer",
+              "Onboarding Engineer sends out an email to schedule the welcome call"
+            ],
+            "templates": [
+              "Customer Welcome email template"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "# Days to Schedule Welcome Calls",
+              "Onboarding CSAT score",
+              "NPS Score is higher for year 1 clients"
+            ],
+            "digital_assets": null
+          }
+        ]
+      },
+      {
+        "title": "ONBOARDING / DELIVERY & EXECUTION",
+        "color": "#204559",
+        "columns": [
+          {
+            "col": "H",
+            "event": "Pre-Onboarding \n[Internal Activity]",
+            "trigger": "The Handover from Sales to Onboarding and TAM teams has been performed & customer tenant is created",
+            "frequency": null,
+            "objectives": [
+              "Create an onboarding plan",
+              "Engage and align all resources",
+              "Align on Onboarding Kick Off",
+              "Document technical SOW",
+              "Capture milestones, KPIs, dependencies, deliverables",
+              "High-level solution discussion",
+              "Customer top 3 priorities",
+              "Capture risks identified that could prevent from obtaining desired outcomes",
+              "Agree on logistics across internal stakeholders",
+              "Assemble onboarding team"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": "If needed"
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "OE and TAM meet to review pre onboarding document",
+              "TAM/OE - Update critical customer data fields in  GS)",
+              "TAM/AM meets with OE to capture key customer priorities"
+            ],
+            "templates": [],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Onboarding CSAT score",
+              "NPS Score is higher for year 1 clients"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "I",
+            "event": "Customer Onboarding",
+            "trigger": "The onboarding engineer has all the artifacts that constitute the onboarding plan readiness (SOW, Kick-off plan etc)",
+            "frequency": null,
+            "objectives": [
+              "Onboarding journey presented to the Customer",
+              "Onboarding prerequisites including credentials for the Customer shared and explained",
+              "Technical Onboarding scope detailed, dates agreed upon",
+              "Success criteria, with milestones and KPIs, confirmed with customer",
+              "Timelines and deliverables confirmed with customer",
+              "Customer dependencies and deliverables agreed upon",
+              "Align expectations and mitigate risks early"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": "If needed"
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "TAM/OE update GS",
+              "TAM will confirm strategic milestones with customer - set expectations on governance model, including business owner touchpoints",
+              "Monitor and intervene as necessary - due to misalignment with customer goals, missing timelines, milestones, etc.; involves potentially escalation, rework/regroup or other adjustments for the onboarding team"
+            ],
+            "templates": [],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Onboarding CSAT score",
+              "NPS Score is higher for year 1 clients",
+              "Decrease time to revenue",
+              "Increase Revenue"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "J",
+            "event": "Implementation and Value Delivery",
+            "trigger": "Following the onboarding alignment and kickoff and technical onboarding (technical user training)",
+            "frequency": null,
+            "objectives": [
+              "Co-Execute onboarding plan",
+              "Deliver first value",
+              "Build rapport with the client",
+              "Iterate until plan fully executed",
+              "Handover to TAM/TS before Launch (Go/No-go)"
+            ],
+            "who": [
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "Company employee",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": "If needed"
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Confirmation from the client that they can start using the system and the value they are getting by moving to us",
+              "Send celebratory note",
+              "Ask for online review or a MOV (moment of value)"
+            ],
+            "templates": [],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "NPS Score is higher for year 1 clients",
+              "Onboarding CSAT score",
+              "# of MOVs"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "K",
+            "event": "Customer Leadership Strategic Update",
+            "trigger": "Every two weeks with the decision maker/ Key Contacts",
+            "frequency": null,
+            "objectives": [
+              "Update the Customer management team on progress, risks, opportunities (one on one call)",
+              "Uncover feedback from the stakeholders working with our onboarding team",
+              "Uncover new priorities and changes in the business that might a barrier or an opportunity for upsell",
+              "Build the strategic relationship with the business leads",
+              "Establish a superior customer experience",
+              "OE updates executive sponsor on status prior to Customer Leadership Strategic update"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": "If needed"
+              }
+            ],
+            "key_activities": [
+              "Follow a consistent agenda to share recent updates, uncover or discuss risks and mitigation strategies, seek feedback and gain update on recent business developments",
+              "Different from onboarding status call - this is more about making sure the business lead understands whether or not they're going to make their business goals and whether something changed",
+              "Monitor and intervene as necessary - due to misalignment with customer goals, missing timelines, milestones, etc.; involves potentially escalation, rework/regroup or other adjustments for the onboarding team"
+            ],
+            "templates": [
+              "Agenda with questions, or topics we need to cover"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Onboarding CSAT score",
+              "CSAT increase",
+              "Onboarding Survey Score"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "L",
+            "event": "Customer Surveys (NPS/ CSAT Onboarding)",
+            "trigger": "End of Onboarding",
+            "frequency": null,
+            "objectives": [
+              "Gain insights into the customer loyalty and satisfaction with SX to address potential issues and mitigate risks"
+            ],
+            "who": [
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              },
+              {
+                "role": "CX OPS",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Follow up within 3 days after receiving a detractor score, or a comment on a NPS/CSAT survey",
+              "Provide input on survey content",
+              "Coordinate with CX Ops team to increase customer engagement with the survey",
+              "Devise action plan for customer"
+            ],
+            "templates": [
+              "NPS survey",
+              "Email template"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "NPS",
+              "CSAT"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "M",
+            "event": "Success Plan",
+            "trigger": "60 days from start of contract",
+            "frequency": null,
+            "objectives": [
+              "A strategic plan to ensure the customer maximizes value beyond the scope of the original onboarding plan",
+              "Goal is to build off onboarding plan to ensure effective adoption, through continuous value points",
+              "Capture customer objectives, goals, and desired outcomes from purchasing and using our products/services",
+              "Plan how to achieve these objectives; how to measure achievement of outcomes (KPI)",
+              "Capture risks, gaps",
+              "Capture Health score, relationship score",
+              "Capture milestones and activities to meet objectives"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Identify customer goals, what are they trying to achieve with our product",
+              "Define CX metrics, map to customer needs",
+              "Define timelines, focusing on moments of value",
+              "Capture additional areas to provide customer value (training, upsells)"
+            ],
+            "templates": [
+              "Template for external customer facing deck"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "CSAT/NPS is higher",
+              "Customer relationship score is higher",
+              "Usage/adoption increase",
+              "Reduce Churn and Increase Upsells",
+              "Number of CSQLs"
+            ],
+            "digital_assets": null
+          }
+        ]
+      },
+      {
+        "title": "Delivery & Execution (Complex Programs)",
+        "color": "#F1C232",
+        "columns": [
+          {
+            "col": "O",
+            "event": "Delivery & Execution",
+            "trigger": "Project planning and delivery based on SOW as part of big programs; eg, CEM projects",
+            "frequency": null,
+            "objectives": [
+              "Execute project plan",
+              "Deliver first value",
+              "Build rapport with the client",
+              "Iterate until plan fully executed",
+              "Handover to TS before Launch (Go/No-go)"
+            ],
+            "who": [
+              {
+                "role": "Customer",
+                "note": null
+              },
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "Company employee",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Confirmation from the client that they can start using the system and the value they are getting by moving to us",
+              "Manage to SOW, timelines and agreed upon milestones and metrics",
+              "Manage changes in scope",
+              "Ask for online review or a MOV (moment of value)",
+              "Develop and maintain project plan based on SOW and agreed upon deliverables, metrics, etc."
+            ],
+            "templates": [
+              "Update customer 360",
+              "Update project plan"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": "X",
+            "metrics": [
+              "NPS Score is higher for year 1 clients"
+            ],
+            "digital_assets": null
+          }
+        ]
+      },
+      {
+        "title": "ADOPTION",
+        "color": "#6AA84F",
+        "columns": [
+          {
+            "col": "R",
+            "event": "Update Customer 360 Weekly",
+            "trigger": "Weekly for TAM accounts, Qtly for Non-TAM accounts",
+            "frequency": null,
+            "objectives": [
+              "Provide dynamic view of the customer - updates  ensure that we provide an accurate view of what is currently going on with the account",
+              "Maintain continuity for handover purposes",
+              "Ensure that other parts of the organization have insights into the company",
+              "Aligned and complimentary to the account views provided by the AE",
+              "Provide dynamic view of the customer"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Capture the latest events, sentiment, updates from the customer",
+              "Capture critical and/or ongoing issues",
+              "Consult AE for input, review and share as needed with other internal parties",
+              "Update TAM and AE Sentiment",
+              "Update Risk Analysis"
+            ],
+            "templates": [],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Reduce Churn and Increase Upsells",
+              "CSAT/NPS is higher"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "S",
+            "event": "Value Advisory Assessment",
+            "trigger": "Monthly assessments, quarterly deep dives",
+            "frequency": null,
+            "objectives": [
+              "Continuously assess the value the customer is realizing, the state of satisfaction, utilization and catching and addessing all issues in a timely fashion",
+              "Validates the areas of usage for each part of the product / Policy area.",
+              "Uncovers areas of discussion to improve adoption and upsell"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Update customer 360 as needed",
+              "Touch point with customer"
+            ],
+            "templates": [],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Reducing churn",
+              "CSAT/NPS is higher",
+              "Usage/adoption increase"
+            ],
+            "digital_assets": "VPA reports, report templates,"
+          },
+          {
+            "col": "T",
+            "event": "EPS Analysis",
+            "trigger": "Monthly post Onboarding",
+            "frequency": null,
+            "objectives": [
+              "Increase visibility into consumption and utilization",
+              "Ability to intervene if necessary to determine what is causing the increase or drop in EPS"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Identify relevant reporting and systems required",
+              "Build or identify resource to build report to capture consumption data",
+              "Reach out to customer based on consumption data if necessary",
+              "Provide information to the AE and the OE",
+              "Provide summary based on template for Salesforce (not weekly) and for escalation as needed"
+            ],
+            "templates": [],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Overage Revenue increase",
+              "Reducing churn"
+            ],
+            "digital_assets": "Automate notices of overage"
+          },
+          {
+            "col": "U",
+            "event": "Customer Surveys (NPS)",
+            "trigger": "3-4 times a year",
+            "frequency": null,
+            "objectives": [
+              "Gain insights into how the customer loyalty and satisfaction with SX to address potential issues and mitigate risks"
+            ],
+            "who": [
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Follow up within 3 days after receiving a detractor score, or a comment on a NPS survey",
+              "Provide input on survey content",
+              "Coordinate with NPS survey team to increase customer engagement with the survey",
+              "Devise action plan for customer"
+            ],
+            "templates": [
+              "NPS survey",
+              "Email template"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "NPS"
+            ],
+            "digital_assets": "Automated delivery"
+          },
+          {
+            "col": "V",
+            "event": "Product Roadmap announcements",
+            "trigger": "Ad hoc meeting upon notification from product team that a new Roadmap is available and relevant to the customer",
+            "frequency": null,
+            "objectives": [
+              "Excite customers around upcoming features",
+              "Secure the renewal",
+              "Reduce churn risk and increase opportunities for upsell",
+              "Justification for price increase"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": "based on importance of update"
+              },
+              {
+                "role": "Key Contacts",
+                "note": "based on importance of update"
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Invite customers to group or individual webinars",
+              "Provide information during Quarterly Business Reviews"
+            ],
+            "templates": [
+              "PPT Presentation Template"
+            ],
+            "systems": [
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Increased upsell",
+              "Increased CSQL",
+              "Increased Renewal Rate"
+            ],
+            "digital_assets": "Marketing documents"
+          }
+        ]
+      },
+      {
+        "title": "Customer Value Management",
+        "color": "#274E13",
+        "columns": [
+          {
+            "col": "X",
+            "event": "Quarterly Business Reviews/EBR (QBR)",
+            "trigger": "Every qtr; TAM supported accounts",
+            "frequency": null,
+            "objectives": [
+              "Learn about customer priorities, needs",
+              "Demonstrate progress for customer initiatives / workstreams",
+              "Discuss product roadmaps and capture feedback",
+              "Review utilization",
+              "Share MOV",
+              "Introduce new products and services that could provide value to customer"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Create agenda based on priorities, customer input, customer status and assign responsibility",
+              "Request input and feedback from customer as well as internal feedback",
+              "TAM will  pull in internal stakeholders as needed (Product, TS, etc)",
+              "Coordinate presentation creation across account team and internal resources",
+              "Coordinate date with customer, location (online/offline), attendance from customer and internal"
+            ],
+            "templates": [
+              "PPT template for the meeting",
+              "Email template for follow-up"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "CSAT/NPS is higher",
+              "Customer relationship score is higher",
+              "# of QBRs",
+              "Usage/adoption increase",
+              "Reduce Churn and Increase Upsells"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "Y",
+            "event": "Digital Quarterly Business Reviews (QBR)",
+            "trigger": "Every qtr; Digital Accounts",
+            "frequency": null,
+            "objectives": [
+              "Learn about customer priorities, needs",
+              "Demonstrate progress for customer initiatives / workstreams",
+              "Discuss product roadmaps and capture feedback",
+              "Review utilization",
+              "Share MOV",
+              "Introduce new products and services that could provide value to customer"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Request input and feedback from customer as well as internal feedback",
+              "Automated QBR created and sent to customer"
+            ],
+            "templates": [
+              "PPT template for the meeting",
+              "Email template for follow-up"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "CSAT/NPS is higher",
+              "Customer relationship score is higher",
+              "# of QBRs",
+              "Usage/adoption increase",
+              "Reduce Churn and Increase Upsells"
+            ],
+            "digital_assets": "Automated presentation"
+          },
+          {
+            "col": "Z",
+            "event": "Success Plan",
+            "trigger": "After a business review; new contract/initiative, renewal/expansion",
+            "frequency": null,
+            "objectives": [
+              "A strategic plan to ensure the customer maximizes value beyond the scope of the original onboarding plan",
+              "Capture customer objectives, goals, and desired outcomes from purchasing and using our products/services",
+              "Plan how to achieve these objectives; how to measure achievement of outcomes (KPI)",
+              "Capture risks, gaps",
+              "Capture Health score, relationship score",
+              "Capture milestones and activities to meet objectives"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Identify customer goals, what are they trying to achieve with our product",
+              "Define CX metrics, map to customer needs",
+              "Define timelines, focusing on moments of value",
+              "Capture additional areas to provide customer value (training, upsells)"
+            ],
+            "templates": [
+              "Template",
+              "Email template for Digital Success Plan"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "CSAT/NPS is higher",
+              "Customer relationship score is higher",
+              "Usage/adoption increase",
+              "Reduce Churn and Increase Upsells",
+              "Number of CSQLs"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "AA",
+            "event": "Product Training",
+            "trigger": "Significant feature changes/enhancements, following implementation, periodic sessions for new hires or other groups, lack of usage due to lack of product knowledge; TAM accounts only",
+            "frequency": null,
+            "objectives": [
+              "Ensure customer can utilize the product towards achieving their goal",
+              "Provide access to resources and tools to guide product utilization, both technical and educational",
+              "Increase adoption and utilization"
+            ],
+            "who": [
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Provide input on how to best customize training to ensure relevance to customer goals and objectives",
+              "Engage and coordinate with customer to maximize attendance and relevance to audience"
+            ],
+            "templates": [
+              "Email invite",
+              "Agenda"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "CSAT/NPS is higher",
+              "Customer relationship score is higher",
+              "Usage/adoption increase",
+              "Reduce Churn and Increase Upsells",
+              "Completion rate of tests and surveys"
+            ],
+            "digital_assets": "Record sessions for digital touch - internal and external"
+          },
+          {
+            "col": "AB",
+            "event": "Collect Moments of Value",
+            "trigger": "When a semi-significant milestone for the customer is achieved; based on customer context and impact to BU, customer stakeholders, end users, etc.",
+            "frequency": null,
+            "objectives": [
+              "Capture value for the customer in a formal manner",
+              "Support your client stakeholders to prove the impact they had on their own organization",
+              "Secure the renewal - reminder of value being brought to the table",
+              "To help marketing identify additional advocates and references",
+              "To feed sales additional value stories and expand the sales references pool",
+              "Results in quantificable outcome/result"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Capture value for the customer in a formal manner",
+              "MOV playbook",
+              "Send documentation to client of the MOV",
+              "Identify and Celebrate Key MOVs",
+              "Document MOV in salesforce and TAM tool",
+              "Engage marketing for customer advocacy opps, white papers, etc."
+            ],
+            "templates": [
+              "MOV Playbook",
+              "Budget for Swag",
+              "MOV template"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": "Celebrate any major MOV - quarterly meetings to showcase MOV to internal groups",
+            "metrics": [
+              "Reduce Churn and Increase Renewals",
+              "CSAT/NPS is higher",
+              "Increased References",
+              "Improved Health Score",
+              "Relationship to lower churn higher retention"
+            ],
+            "digital_assets": null
+          }
+        ]
+      },
+      {
+        "title": "Revenue Risk Management & Renewals",
+        "color": "#741B47",
+        "columns": [
+          {
+            "col": "AD",
+            "event": "Churn Risk Score/Index",
+            "trigger": "As Needed/Twice a quarter",
+            "frequency": null,
+            "objectives": [
+              "Identify customers that are at high risk of stop doing business with us",
+              "Used across customers to help establish baselines, reliability, prediction of churn"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Identify churn risk factors/triggers to compose index",
+              "Monitor for risks to the account based on factors identifiied",
+              "Adjust and evolve to better capture churn risk"
+            ],
+            "templates": [],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": "Internal - Red to Green",
+            "metrics": [
+              "% of customers saved is higher",
+              "% of low utilization is reduced"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "AE",
+            "event": "Risk Playbooks",
+            "trigger": "Customer flagged by churn risk score",
+            "frequency": null,
+            "objectives": [
+              "Activate standard procedures based on common risk triggers (such as a detractor NPS score)",
+              "Provide mitigation to risk identified - red to yellow, red to green"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Assess the risk",
+              "Determine the correct play to mitigate the risk, identify the correct stakeholders",
+              "Execute the play as outlined in the playbook but adapted to the specific customer situation"
+            ],
+            "templates": [
+              "Email template",
+              "Risk playbook - process, framework, key activities"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "% of customers saved is higher",
+              "% of low utilization is reduced"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "AF",
+            "event": "Code Red",
+            "trigger": "Customer is identified as a immenant churn risk",
+            "frequency": null,
+            "objectives": [
+              "Inform management to intervene in order to rescue the relationship"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "CX Leadership",
+                "note": null
+              },
+              {
+                "role": "Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Engineer",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Review customer escalation, issue(s) at hand, internal and external parties involved,",
+              "Assemble the cross-functional team to address the customer issues",
+              "Setup meeting with internal stakeholders to determine plan of action",
+              "Coordinate updates internally and externally"
+            ],
+            "templates": [
+              "Email template",
+              "Code Red framework/playbook"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": "Internal - Red to Green",
+            "metrics": [
+              "% of customers saved is higher",
+              "% of low utilization is reduced"
+            ],
+            "digital_assets": null
+          },
+          {
+            "col": "AG",
+            "event": "Contract Renewal support",
+            "trigger": "6 months prior to Renewal (interm and expiring)",
+            "frequency": null,
+            "objectives": [
+              "Assist the AE with the renewal by providing input on customer technical relationship",
+              "Leverage the relationship the TAM has prior to the renewal phase to help the AE establish rapport",
+              "Digital - Provide notice to customer on pending renewal"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "TAM/Digital TAM reaches out to the customer and informally finds out the customer's propensity to renew a few months ahead of the renewal date",
+              "If AE is new or doesnt have a strong relationship with the account, the TAM helps introduce them to the appropriate resources ahead of time",
+              "TAM shares their forecast and success plan with the AE and highlights any reasons for risk of renewal or opportunities for upsell",
+              "AE reaches out to the customer a few months before the renewal",
+              "AE negotiates contract and renewal terms"
+            ],
+            "templates": [],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "Average Revenue per Customer is higher",
+              "Hgher retention rate"
+            ],
+            "digital_assets": null
+          }
+        ]
+      },
+      {
+        "title": "EXPANSION & EXISTING CUSTOMER DEALS",
+        "color": "#7B4900",
+        "columns": [
+          {
+            "col": "AI",
+            "event": "CSQL",
+            "trigger": "Based on a specific need or opportunity from a customer; could happen at any point in journey",
+            "frequency": null,
+            "objectives": [
+              "Identify additional features, product, features, solutions to address a customer need",
+              "Drive expansion and revenue",
+              "Maximize value for customer using our products and services",
+              "Identify upsells for Sales"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Key Contacts",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "TAM",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Digital CX",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Vetted lead that TAM introduces to Sales",
+              "Document lead",
+              "Qualify lead based on CX best practices process",
+              "Track leads through sales stages to close.",
+              "Post-mortem to determine efficacy of process and possible changes to process"
+            ],
+            "templates": [
+              "Qualification/validation process",
+              "Internal training materials on key words and phrases to identify opportunities for add'l products."
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "metrics": [
+              "# of CSQL",
+              "Conversion Rate of CSQL to opportunity",
+              "# of CSQL Closed / Won",
+              "Revenue from SALes",
+              "Number of saved renewals."
+            ],
+            "digital_assets": null
+          }
+        ]
+      }
+    ]
+  },
+  "sheet2": {
+    "meta": {
+      "doc_name": "Onboarding LIfecycle Journey Map",
+      "objective": "To clearly define the activities of the onboarding manager during the onboarding phase",
+      "champion": "Artur",
+      "stakeholders": "Gerhard, Zack, Jessica, Karina, Kris, Paolo"
+    },
+    "stages": [
+      {
+        "title": "SALES",
+        "color": "#660000",
+        "columns": [
+          {
+            "col": "B",
+            "event": "Intro to Onboarding (Customer Introduction per onboarding framework)",
+            "trigger": "When the customer provides a verbal go",
+            "objectives": [
+              "Begin establishing rapport with the client",
+              "Align expectations on onboarding with the client",
+              "Improve customer satisfaction",
+              "Reduce onboarding risks"
+            ],
+            "who": [
+              {
+                "role": "Business Sponsor/Champion",
+                "note": null
+              },
+              {
+                "role": "Program Lead/Manager",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "HERE Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Sales rep coordinates an initial call with the onboading manager",
+              "AE leads call with Customer",
+              "AE sends a follow up email"
+            ],
+            "templates": [
+              "Email Template",
+              "Questionnaire",
+              "Agenda",
+              "Slide Deck"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform",
+              "SNOW"
+            ],
+            "celebration": null,
+            "education": [
+              "Industry specific Knowlege"
+            ],
+            "metrics": [
+              "% of product registration completed (prior to kick off calls)",
+              "Onboarding CSAT score",
+              "NPS Score is higher for year 1 clients"
+            ]
+          },
+          {
+            "col": "C",
+            "event": "Sales Handover to CSM/OE",
+            "trigger": "After contract signature, AE opens a onboarding request",
+            "objectives": [
+              "Highlight inherent risks early",
+              "Understand customer desired outcomes and align on how we're going to meet them",
+              "Avoid delays in onboarding",
+              "Build significant relationship with the customers early",
+              "CSM/OE develops account awareness, background, etc.",
+              "Clear identification of stakeholders on customer side",
+              "Identify solutions sold, length of contract, etc.",
+              "Business priorities, timelines, reporting, invoicing cycles and SLA committments",
+              "OE initiates customer portal request"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Patner Manager",
+                "note": null
+              },
+              {
+                "role": "HERE Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "Business Solution Architect - BSA",
+                "note": null
+              },
+              {
+                "role": "CSM LT (leadersthip team)",
+                "note": "Tier 1 or 2"
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": "Custom Solutions only"
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              },
+              {
+                "role": "Product Management",
+                "note": "Tier 1"
+              },
+              {
+                "role": "Legal",
+                "note": "Tier 1"
+              }
+            ],
+            "key_activities": [
+              "Sales Rep Fills out the sales handover form",
+              "Form sent to OE for review (copying CSM)",
+              "AE schedules a call with the Onboarding team and CSM team to discuss form related questions (follow up)",
+              "OE follows up with account executive or PS team to ensure all documents are collected (SOW, etc)",
+              "CSM - Update critical customer data fields in the CS system",
+              "OE completes checklist and marks related task complete (CSM kept in the loop)"
+            ],
+            "templates": [
+              "Sales Handoff Questionnaire",
+              "Customer Score from AE",
+              "Handover Agenda (Governance Model, Questions to ask)"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform",
+              "SNOW"
+            ],
+            "celebration": null,
+            "education": [],
+            "metrics": [
+              "Sales handoffs/Sales deals won",
+              "% Sales Handoff Questionnaires Completed",
+              "CSAT increase"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Onboarding",
+        "color": "#204559",
+        "columns": [
+          {
+            "col": "E",
+            "event": "Implement Customer Customer Portal",
+            "trigger": "Following the Sales Handover and assignment of OE",
+            "objectives": [
+              "Customer is able to view products and services as provided by the contract, usage, preonboarding materials and activities (onboarding plan included as it is built out)",
+              "Increase customer awareness to onboarding process",
+              "Decrease time to first value",
+              "Decrease time to adoption and revenue"
+            ],
+            "who": [
+              {
+                "role": "Business Sponsor/Champion",
+                "note": null
+              },
+              {
+                "role": "Program Lead/Manager",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Business Solution Architect - BSA",
+                "note": null
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Create portal account based on contract",
+              "Send out personal/professional OE email with guidelines to customer, credentials",
+              "Email sent out to each customer stakeholder who will be involved in the onboarding, all personalized"
+            ],
+            "templates": [
+              "Email termplate",
+              "Sales handoff questionaire"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform",
+              "SNOW"
+            ],
+            "celebration": null,
+            "education": [
+              "Self serve materials on how to use the customer portal"
+            ],
+            "metrics": [
+              "TIme to onboarding",
+              "Customer portal utilization",
+              "CSAT increase"
+            ]
+          },
+          {
+            "col": "F",
+            "event": "Pre-Onboarding \n[Internal Activity]",
+            "trigger": "The Handover from Sales to Onboarding and CSM teams has been performed & customer portal is created",
+            "objectives": [
+              "Create an onboarding plan",
+              "Engage and align all resources",
+              "Align on Onboarding Kick Off",
+              "Document technical SOW",
+              "Capture milestones, KPIs, dependencies, deliverables",
+              "High-level solution discussion",
+              "Customer top 3 priorities",
+              "Logistics",
+              "Assemble onboarding team"
+            ],
+            "who": [
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Business Solution Architect - BSA",
+                "note": "for custom deployments"
+              },
+              {
+                "role": "CSM LT (leadersthip team)",
+                "note": null
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              },
+              {
+                "role": "Product Management",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "OE and CSM meet to review preonboarding document",
+              "Review handover questionaire, pull relevant info, with follow-up as needed",
+              "OE assigns and notifies additional onboaring team members",
+              "Define MVP (First Value to be delivered defined) ensuring our technology can support the Customer MVP; formed with customer input",
+              "Technical Statement of Work (TSOW) created by OE",
+              "Capture risks identified that could prevent from obtaining desired outcomes",
+              "Identify SLA commitments: latency, response time, availability, regional coverage, BHCA,RPS, business continuity (failover), Security, Management and operations of the services"
+            ],
+            "templates": [
+              "Onboarding checklist",
+              "TSOW template"
+            ],
+            "systems": [
+              "CS Platform",
+              "SNOW"
+            ],
+            "celebration": null,
+            "education": [
+              "Identify relevant training material for customer"
+            ],
+            "metrics": [
+              "Onboarding CSAT score",
+              "NPS Score is higher for year 1 clients"
+            ]
+          },
+          {
+            "col": "G",
+            "event": "Onboarding Customer Introduction (Onboarding alignment and kickoff)",
+            "trigger": "The onboarding manager has all the artifacts that constitute the onboarding plan ready",
+            "objectives": [
+              "Onboarding journey presented to the Customer",
+              "Onboarding pre-requisites including credentials for the Customer shared and explained",
+              "Technical Onboarding scope detailed, date agreed upon",
+              "Develop customer accountability - Customer dependencies and deliverables agreed upon",
+              "Align expectations and mitgate risks early",
+              "Align on key dates (education, FVD etc)"
+            ],
+            "who": [
+              {
+                "role": "Business Sponsor/Champion",
+                "note": null
+              },
+              {
+                "role": "Program Lead/Manager",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "Inside Sales",
+                "note": null
+              },
+              {
+                "role": "Patner Manager",
+                "note": null
+              },
+              {
+                "role": "Business Solution Architect - BSA",
+                "note": null
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              },
+              {
+                "role": "Product Management",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Onboarding journey presented to the Customer by OE",
+              "Confirm success criteria, with milestones and KPIs, with customer",
+              "Confirm timelines and deliverables with customer",
+              "Objectives, dependencies and risks are identified are acknowledged by both parties"
+            ],
+            "templates": [
+              "Follow-up emal after onboarding session",
+              "Onboarding survey"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform",
+              "SNOW"
+            ],
+            "celebration": null,
+            "education": [
+              "Includes an education component (incl end user training, and possibly train the trainer education program)"
+            ],
+            "metrics": [
+              "Time to onboard, i.e. time between contract signature and \u201cOnboarding Alignment and kick off\u201d",
+              "Decrease time to revenue",
+              "Increase Revenue"
+            ]
+          },
+          {
+            "col": "H",
+            "event": "Technical Onboarding (user training)",
+            "trigger": "Intro call, registration and questionnaire is complete",
+            "objectives": [
+              "Educate customer on product capabilities",
+              "Provide hands-on technical training to customer"
+            ],
+            "who": [
+              {
+                "role": "Business Sponsor/Champion",
+                "note": null
+              },
+              {
+                "role": "Program Lead/Manager",
+                "note": null
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              },
+              {
+                "role": "Digital Success",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Begin sequence email with training suggestions, resources etc",
+              "Invite to related webinars, online community discussions, live user events etc. related to their use case"
+            ],
+            "templates": [
+              "Email Sequence template",
+              "Email templates for event invitations"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "education": [
+              "List of recommended training"
+            ],
+            "metrics": [
+              "Participation Rate",
+              "Open/Click Rate",
+              "Customer Value Score",
+              "# Training completed"
+            ]
+          },
+          {
+            "col": "I",
+            "event": "Implementation and Value Delivery",
+            "trigger": "Following the onboarding alignment and kickoff and technical onboarding (technical user training)",
+            "objectives": [
+              "Co-Execute onboarding plan",
+              "DEliver first value",
+              "Build rapport with the client",
+              "Iterate until plan fully executed",
+              "Handover to CS/TS before Launch (Go/No-go)"
+            ],
+            "who": [
+              {
+                "role": "Executive Decision Maker",
+                "note": null
+              },
+              {
+                "role": "Business Sponsor/Champion",
+                "note": null
+              },
+              {
+                "role": "Program Lead/Manager",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "HERE Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "CSM LT (leadersthip team)",
+                "note": null
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Get confirmation from your manager",
+              "Confirmation from the client that they can start using the system and the value they are getting by moving to us",
+              "Send celebratory note and \"cake\"",
+              "Ask for online review or a MOV (moment of value)"
+            ],
+            "templates": [
+              "Talk Track",
+              "Message template"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": "X",
+            "education": [],
+            "metrics": [
+              "NPS Score is higher for year 1 clients",
+              "Onboarding CSAT score",
+              "# of MOVs"
+            ]
+          },
+          {
+            "col": "J",
+            "event": "External/Internal Bi-Weekly/Timely Check Ins",
+            "trigger": "After welcome process is complete through completion of implementation",
+            "objectives": [
+              "Raise pre-implementation risks",
+              "Keep communication lines open with the client till implantation starts",
+              "Attend meetings during implementation to keep updated on risks",
+              "Visibility to process issues and ability to improve processes",
+              "CSM is informed during implementation that could help mitigate earlier"
+            ],
+            "who": [
+              {
+                "role": "Business Sponsor/Champion",
+                "note": null
+              },
+              {
+                "role": "Program Lead/Manager",
+                "note": null
+              },
+              {
+                "role": "HERE Exec Sponsor",
+                "note": null
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Reach out to client every two weeks to follow up with open items",
+              "Provide update on delays",
+              "Invite to related webinars, online community discussions, live user events etc. related to their use case"
+            ],
+            "templates": [
+              "Email Template - for handling delays",
+              "Email template - for handling open items",
+              "Policy for outreach cadence till implementation starts",
+              "Policy for outreach cadence during implementation"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform"
+            ],
+            "celebration": null,
+            "education": [],
+            "metrics": [
+              "% Risks mitigated successfully",
+              "% Onboarding completed successfully",
+              "# of celebration cakes sent within 1-2 weeks of completion"
+            ]
+          },
+          {
+            "col": "K",
+            "event": "Launch (Go / No-Go)",
+            "trigger": "The implementation and delivery phase specified in the onboarding plan has been co-executed. The Customer and HERE are ready to meet and decide on the readiness for Launch",
+            "objectives": [
+              "Determine with customer and HERE if solution is ready to adopt, launch operate and support",
+              "The tollgate review has three possible outcomes:\nNot Launch: Continue with \"Failure Analysis Postmortem\" \nPostpone Launch: Continue with \"Remove Launch Blockers\" Launch: Continue with \"Adopt\""
+            ],
+            "who": [
+              {
+                "role": "Business Sponsor/Champion",
+                "note": null
+              },
+              {
+                "role": "Program Lead/Manager",
+                "note": null
+              },
+              {
+                "role": "AE",
+                "note": null
+              },
+              {
+                "role": "CSM LT (leadersthip team)",
+                "note": null
+              },
+              {
+                "role": "Customer Success Manager",
+                "note": null
+              },
+              {
+                "role": "Technical Support  (TS)",
+                "note": null
+              },
+              {
+                "role": "Professional Services (PS)",
+                "note": null
+              },
+              {
+                "role": "Onboarding Manager",
+                "note": null
+              },
+              {
+                "role": "Product Management",
+                "note": null
+              }
+            ],
+            "key_activities": [
+              "Create tollgate review record with agreed next steps, owners and due dates",
+              "If launch is no-go (failure), create postmortem review record with reason for failure findings and action plan to address these and prevent reoccurrence.",
+              "If postponed, the Onboarding team conducts an analysis of the findings, works with all stakeholders including the Customer, puts in place a mitigation plan and executes it to remove those obstacles - back to tollgate progess.",
+              "Customer provides feedback, i.e. onboarding CSAT survey is conducted"
+            ],
+            "templates": [
+              "CSAT survey"
+            ],
+            "systems": [
+              "SalesForce",
+              "CS Platform",
+              "SNOW"
+            ],
+            "celebration": null,
+            "education": [],
+            "metrics": [
+              "Onboarding ratio - # Onboarded Customers/# Customers in commercial operation",
+              "CSAT"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

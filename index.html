@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Success Lifecycle Journey Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #14181f;
+  --ink-soft: #4a5160;
+  --bg: #f6f5f2;
+  --card-bg: #ffffff;
+  --border: #e6e3db;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+}
+a { color: inherit; }
+
+/* ---------- HERO ---------- */
+.hero {
+  background: linear-gradient(135deg, #14181f 0%, #262b36 55%, #1c2430 100%);
+  color: #fff;
+  padding: 64px 32px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.08), transparent 55%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #ffd479;
+  margin: 0 0 14px;
+}
+.hero h1 {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 600;
+  margin: 0 0 16px;
+  max-width: 780px;
+}
+.hero p.objective {
+  font-size: 17px;
+  color: #cdd2dd;
+  max-width: 640px;
+  margin: 0 0 28px;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 32px;
+}
+.hero-meta div {
+  font-size: 13px;
+  color: #9aa2b1;
+}
+.hero-meta strong {
+  display: block;
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.stat-row {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.stat {
+  min-width: 90px;
+}
+.stat .num {
+  font-size: 30px;
+  font-weight: 800;
+  font-family: 'Source Serif 4', serif;
+  color: #ffd479;
+}
+.stat .lbl {
+  font-size: 12.5px;
+  color: #9aa2b1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.legend {
+  display: flex;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 700px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+}
+.legend-seg { background: var(--seg-color); }
+
+/* ---------- NAV ---------- */
+.view-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 4px;
+  padding: 0 32px;
+}
+.view-tabs button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding: 16px 18px 14px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+.view-tabs button.active {
+  color: var(--ink);
+  border-bottom-color: #1c2430;
+}
+
+.toolbar {
+  position: sticky;
+  top: 49px;
+  z-index: 25;
+  background: rgba(246,245,242,0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.pill-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.pill {
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: var(--pill-color);
+  color: var(--pill-text);
+  opacity: 0.88;
+  white-space: nowrap;
+}
+.pill:hover { opacity: 1; }
+.role-filter {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  min-width: 190px;
+}
+
+/* ---------- MAIN ---------- */
+main { max-width: 1200px; margin: 0 auto; padding: 32px; }
+.stage { margin-bottom: 46px; scroll-margin-top: 110px; }
+.stage-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--accent-text);
+  margin-bottom: 18px;
+}
+.stage-header h2 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 21px;
+  margin: 0;
+  font-weight: 600;
+}
+.stage-header .count {
+  font-size: 12.5px;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  transition: box-shadow .15s ease, opacity .15s ease;
+}
+.card.dimmed { opacity: 0.28; }
+.card-head {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 16px 18px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 10px;
+  align-items: start;
+}
+.card-head h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  grid-column: 1;
+}
+.card-head .chev {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font-size: 20px;
+  color: #b9b3a6;
+  align-self: center;
+  transition: transform .18s ease;
+}
+.card.open .card-head .chev { transform: rotate(90deg); color: var(--accent); }
+.trigger {
+  grid-column: 1;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin: 2px 0 0;
+}
+.trigger .label {
+  font-weight: 700;
+  color: var(--accent);
+  margin-right: 6px;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+}
+.card-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 18px;
+}
+.card.open .card-body {
+  max-height: 4000px;
+  padding: 0 18px 18px;
+}
+.field { margin-top: 12px; }
+.field-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.field ul, .field ol {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+.field ul li, .field ol li { margin-bottom: 3px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef1f6;
+  color: #33394a;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: #f1efe9;
+  color: #5a5546;
+}
+.tag-system { background: #eaf2ee; color: #2f5d43; }
+.tag-metric { background: #eef0fb; color: #38408f; }
+.tag-outline { background: #fff; border: 1px solid var(--border); color: var(--ink-soft); }
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+}
+.field.small { margin-top: 10px; }
+.celebration {
+  margin-top: 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  background: #fff6e0;
+  color: #8a5a00;
+  padding: 7px 12px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 26px 32px 60px;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  border-top: 1px solid var(--border);
+}
+
+#view-onboarding { display: none; }
+
+@media (max-width: 640px) {
+  .hero { padding: 44px 18px 28px; }
+  main { padding: 20px 16px; }
+  .toolbar { padding: 10px 16px; }
+  .view-tabs { padding: 0 16px; overflow-x:auto; }
+}
+
+@media print {
+  .view-tabs, .toolbar { display: none !important; }
+  #view-lifecycle, #view-onboarding { display: block !important; }
+  .card-body { max-height: none !important; padding: 0 18px 18px !important; }
+  .card-head .chev { display: none; }
+  .stage { page-break-inside: avoid; }
+  .hero { background: #14181f !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .stage-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Customer Success &middot; Portfolio Artifact</p>
+    <h1>Customer Success Lifecycle Journey</h1>
+    <p class="objective">To clearly identify the proactive activities of the TAM during the lifecycle of the customer journey</p>
+    <div class="stat-row">
+      <div class="stat"><div class="num">7</div><div class="lbl">Journey Stages</div></div>
+      <div class="stat"><div class="num">36</div><div class="lbl">Mapped Touchpoints</div></div>
+      <div class="stat"><div class="num">13</div><div class="lbl">Roles Orchestrated</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Systems of Record</div></div>
+    </div>
+    <div class="legend"><div class="legend-seg" style="--seg-color:#660000; flex-grow:5" title="NEW SALES DEALS"></div><div class="legend-seg" style="--seg-color:#204559; flex-grow:6" title="ONBOARDING / DELIVERY &amp; EXECUTION"></div><div class="legend-seg" style="--seg-color:#F1C232; flex-grow:1" title="Delivery &amp; Execution (Complex Programs)"></div><div class="legend-seg" style="--seg-color:#6AA84F; flex-grow:5" title="ADOPTION"></div><div class="legend-seg" style="--seg-color:#274E13; flex-grow:5" title="Customer Value Management"></div><div class="legend-seg" style="--seg-color:#741B47; flex-grow:4" title="Revenue Risk Management &amp; Renewals"></div><div class="legend-seg" style="--seg-color:#7B4900; flex-grow:1" title="EXPANSION &amp; EXISTING CUSTOMER DEALS"></div></div>
+    <div class="hero-meta">
+      <div><strong>TAM Leadership</strong>Process Champion</div>
+      <div><strong>Cross-functional CS, Sales &amp; Onboarding Leadership</strong>Core Stakeholders</div>
+    </div>
+  </div>
+</header>
+
+<nav class="view-tabs">
+  <button class="active" onclick="showView('view-lifecycle', this)">Full Customer Lifecycle</button>
+  <button onclick="showView('view-onboarding', this)">Onboarding Deep-Dive</button>
+</nav>
+
+<div class="toolbar">
+  <div class="pill-row" id="pills-lifecycle"><a href="#lc-new-sales-deals" class="pill" style="--pill-color:#660000; --pill-text:#ffffff">NEW SALES DEALS</a><a href="#lc-onboarding-delivery-execution" class="pill" style="--pill-color:#204559; --pill-text:#ffffff">ONBOARDING / DELIVERY &amp; EXECUTION</a><a href="#lc-delivery-execution-complex-programs" class="pill" style="--pill-color:#F1C232; --pill-text:#1a1a1a">Delivery &amp; Execution (Complex Programs)</a><a href="#lc-adoption" class="pill" style="--pill-color:#6AA84F; --pill-text:#ffffff">ADOPTION</a><a href="#lc-customer-value-management" class="pill" style="--pill-color:#274E13; --pill-text:#ffffff">Customer Value Management</a><a href="#lc-revenue-risk-management-renewals" class="pill" style="--pill-color:#741B47; --pill-text:#ffffff">Revenue Risk Management &amp; Renewals</a><a href="#lc-expansion-existing-customer-deals" class="pill" style="--pill-color:#7B4900; --pill-text:#ffffff">EXPANSION &amp; EXISTING CUSTOMER DEALS</a></div>
+  <div class="pill-row" id="pills-onboarding" style="display:none"><a href="#ob-sales" class="pill" style="--pill-color:#660000; --pill-text:#ffffff">SALES</a><a href="#ob-onboarding" class="pill" style="--pill-color:#204559; --pill-text:#ffffff">Onboarding</a></div>
+  <select class="role-filter" id="roleFilter" onchange="filterByRole()">
+    <option value="">Filter by role&hellip;</option>
+  </select>
+</div>
+
+<main id="view-lifecycle">
+        <section class="stage" id="lc-new-sales-deals" style="--accent:#660000; --accent-text:#ffffff">
+          <div class="stage-header">
+            <h2>NEW SALES DEALS</h2>
+            <span class="count">5 touchpoints</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="CX OPS"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Add to CSP</h3><p class="trigger"><span class="label">Trigger</span>Oppty Closed/Won</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Allow for account tracking</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">CX OPS</span></div></div><div class="meta-grid"></div></div></article><article class="card" data-roles="CX Leadership|TAM"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Assign a TAM</h3><p class="trigger"><span class="label">Trigger</span>Oppty is Closed/Won in CRM, ARR is above lower ARR limit $125k</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Identify what customer journey the customer will have if they are with a TAM or not</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">CX Leadership</span><span class="chip">TAM</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>CX Leadership notified that a deal meeting min ARR requirements has changed to Closed/Won in CRM</li><li>TAM name entered into CRM/CSP</li><li>Notification sent to TAM of the new assignment</li><li>If no TAM assignment add to Digital TAM group</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Notification provided to the AE, TAM including outline of next steps</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">% Assignment of TAM</span><span class="tag tag-metric">Days to first intro call with customer</span><span class="tag tag-metric">Onboarding CSAT Score - comparison between TAM assigned to TAM not assigned</span></div></div></div></div></article><article class="card" data-roles="Key Contacts|AE|Exec Sponsor|TAM|Onboarding Engineer"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Intro to Onboarding (Customer Introduction per onboarding framework)</h3><p class="trigger"><span class="label">Trigger</span>Oppty Closed/Won</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Begin establishing rapport with the customer</li><li>Align expectations on onboarding with the customer</li><li>Improve customer satisfaction</li><li>Reduce onboarding risks</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">Exec Sponsor</span><span class="chip">TAM</span><span class="chip">Onboarding Engineer</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>AE coordinates an initial call with the onboarding engineer and TAM</li><li>AE leads call with Customer (may vary for existing opps with TAM already engaged)</li><li>AE sends a follow up email</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Email Template</span><span class="tag tag-outline">Standardized agenda</span><span class="tag tag-outline">Standardized Slide Deck</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Onboarding CSAT score</span></div></div></div></div></article><article class="card" data-roles="AE|Exec Sponsor|TAM|Technical Support (TS)|Professional Services (PS)|Onboarding Engineer"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Sales Account Introduction to TAM/OE</h3><p class="trigger"><span class="label">Trigger</span>Oppty Closed/Won, TAM assigned</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Highlight inherent risks early</li><li>Understand customer desired outcomes and align on how we&#x27;re going to meet them</li><li>Avoid delays in onboarding</li><li>Build significant relationship with the customers early</li><li>TAM and OE develop account awareness, background, etc.</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">Exec Sponsor</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip" title="Custom Solutions only">Professional Services (PS)<sup>*</sup></span><span class="chip">Onboarding Engineer</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Sales Rep Fills out the sales handover form</li><li>Form sent to OE for review (copying TAM)</li><li>TAM schedules a call with the sales and onboarding team to discuss form related questions (follow up)</li><li>OE follows up with account executive or PS team to ensure all documents are collected (SOW, etc)</li><li>TAM - Update critical customer data fields in CSP</li><li>OE completes checklist and marks related task complete (TAM kept in the loop)</li><li>AE sends email introduction to the Customer (intro to OE &amp; TAM)</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Sales Handover form</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Sales handoffs/Sales deals won</span><span class="tag tag-metric">% Sales Handover forms Completed</span><span class="tag tag-metric">CSAT increase</span><span class="tag tag-metric">Increase Revenue</span><span class="tag tag-metric">Decrease time to revenue</span><span class="tag tag-metric">Increase Expansion Selling</span></div></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|Exec Sponsor|TAM|Onboarding Engineer"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>AE Introduction of Customer Success process to customer (Team Structure including TAM and OE)</h3><p class="trigger"><span class="label">Trigger</span>Oppty Closed/Won, TAM assigned, Sales Intro Completed</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Make sure the customer feels important</li><li>To increase the success and speed of onboarding/adoption</li><li>Avoid delays in onboarding</li><li>Improve customer satisfaction</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">Exec Sponsor</span><span class="chip">TAM</span><span class="chip">Onboarding Engineer</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Welcome email message from your CX exec (Customer Welcome email template)</li><li>Sales rep sends out an introduction email to Onboarding Engineer</li><li>Onboarding Engineer sends out an email to schedule the welcome call</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Customer Welcome email template</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric"># Days to Schedule Welcome Calls</span><span class="tag tag-metric">Onboarding CSAT score</span><span class="tag tag-metric">NPS Score is higher for year 1 clients</span></div></div></div></div></article></div>
+        </section>
+        <section class="stage" id="lc-onboarding-delivery-execution" style="--accent:#204559; --accent-text:#ffffff">
+          <div class="stage-header">
+            <h2>ONBOARDING / DELIVERY &amp; EXECUTION</h2>
+            <span class="count">6 touchpoints</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="AE|Professional Services (PS)|Onboarding Engineer"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Pre-Onboarding 
+[Internal Activity]</h3><p class="trigger"><span class="label">Trigger</span>The Handover from Sales to Onboarding and TAM teams has been performed &amp; customer tenant is created</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Create an onboarding plan</li><li>Engage and align all resources</li><li>Align on Onboarding Kick Off</li><li>Document technical SOW</li><li>Capture milestones, KPIs, dependencies, deliverables</li><li>High-level solution discussion</li><li>Customer top 3 priorities</li><li>Capture risks identified that could prevent from obtaining desired outcomes</li><li>Agree on logistics across internal stakeholders</li><li>Assemble onboarding team</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip" title="If needed">Professional Services (PS)<sup>*</sup></span><span class="chip">Onboarding Engineer</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>OE and TAM meet to review pre onboarding document</li><li>TAM/OE - Update critical customer data fields in  CSP)</li><li>TAM/AM meets with OE to capture key customer priorities</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Onboarding CSAT score</span><span class="tag tag-metric">NPS Score is higher for year 1 clients</span></div></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|TAM|Technical Support (TS)|Professional Services (PS)|Onboarding Engineer"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Customer Onboarding</h3><p class="trigger"><span class="label">Trigger</span>The onboarding engineer has all the artifacts that constitute the onboarding plan readiness (SOW, Kick-off plan etc)</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Onboarding journey presented to the Customer</li><li>Onboarding prerequisites including credentials for the Customer shared and explained</li><li>Technical Onboarding scope detailed, dates agreed upon</li><li>Success criteria, with milestones and KPIs, confirmed with customer</li><li>Timelines and deliverables confirmed with customer</li><li>Customer dependencies and deliverables agreed upon</li><li>Align expectations and mitigate risks early</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip" title="If needed">Professional Services (PS)<sup>*</sup></span><span class="chip">Onboarding Engineer</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>TAM/OE update CSP</li><li>TAM will confirm strategic milestones with customer - set expectations on governance model, including business owner touchpoints</li><li>Monitor and intervene as necessary - due to misalignment with customer goals, missing timelines, milestones, etc.; involves potentially escalation, rework/regroup or other adjustments for the onboarding team</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Onboarding CSAT score</span><span class="tag tag-metric">NPS Score is higher for year 1 clients</span><span class="tag tag-metric">Decrease time to revenue</span><span class="tag tag-metric">Increase Revenue</span></div></div></div></div></article><article class="card" data-roles="Key Contacts|Company employee|TAM|Technical Support (TS)|Professional Services (PS)|Onboarding Engineer"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Implementation and Value Delivery</h3><p class="trigger"><span class="label">Trigger</span>Following the onboarding alignment and kickoff and technical onboarding (technical user training)</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Co-Execute onboarding plan</li><li>Deliver first value</li><li>Build rapport with the client</li><li>Iterate until plan fully executed</li><li>Handover to TAM/TS before Launch (Go/No-go)</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Key Contacts</span><span class="chip">Company employee</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip" title="If needed">Professional Services (PS)<sup>*</sup></span><span class="chip">Onboarding Engineer</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Confirmation from the client that they can start using the system and the value they are getting by moving to us</li><li>Send celebratory note</li><li>Ask for online review or a MOV (moment of value)</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">NPS Score is higher for year 1 clients</span><span class="tag tag-metric">Onboarding CSAT score</span><span class="tag tag-metric"># of MOVs</span></div></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|TAM|Professional Services (PS)"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Customer Leadership Strategic Update</h3><p class="trigger"><span class="label">Trigger</span>Every two weeks with the decision maker/ Key Contacts</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Update the Customer management team on progress, risks, opportunities (one on one call)</li><li>Uncover feedback from the stakeholders working with our onboarding team</li><li>Uncover new priorities and changes in the business that might a barrier or an opportunity for upsell</li><li>Build the strategic relationship with the business leads</li><li>Establish a superior customer experience</li><li>OE updates executive sponsor on status prior to Customer Leadership Strategic update</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip" title="If needed">Professional Services (PS)<sup>*</sup></span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Follow a consistent agenda to share recent updates, uncover or discuss risks and mitigation strategies, seek feedback and gain update on recent business developments</li><li>Different from onboarding status call - this is more about making sure the business lead understands whether or not they&#x27;re going to make their business goals and whether something changed</li><li>Monitor and intervene as necessary - due to misalignment with customer goals, missing timelines, milestones, etc.; involves potentially escalation, rework/regroup or other adjustments for the onboarding team</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Agenda with questions, or topics we need to cover</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Onboarding CSAT score</span><span class="tag tag-metric">CSAT increase</span><span class="tag tag-metric">Onboarding Survey Score</span></div></div></div></div></article><article class="card" data-roles="Key Contacts|AE|TAM|Onboarding Engineer|CX OPS"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Customer Surveys (NPS/ CSAT Onboarding)</h3><p class="trigger"><span class="label">Trigger</span>End of Onboarding</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Gain insights into the customer loyalty and satisfaction with SX to address potential issues and mitigate risks</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Onboarding Engineer</span><span class="chip">CX OPS</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Follow up within 3 days after receiving a detractor score, or a comment on a NPS/CSAT survey</li><li>Provide input on survey content</li><li>Coordinate with CX Ops team to increase customer engagement with the survey</li><li>Devise action plan for customer</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">NPS survey</span><span class="tag tag-outline">Email template</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">NPS</span><span class="tag tag-metric">CSAT</span></div></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|TAM|Technical Support (TS)|Onboarding Engineer"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Success Plan</h3><p class="trigger"><span class="label">Trigger</span>60 days from start of contract</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>A strategic plan to ensure the customer maximizes value beyond the scope of the original onboarding plan</li><li>Goal is to build off onboarding plan to ensure effective adoption, through continuous value points</li><li>Capture customer objectives, goals, and desired outcomes from purchasing and using our products/services</li><li>Plan how to achieve these objectives; how to measure achievement of outcomes (KPI)</li><li>Capture risks, gaps</li><li>Capture Health score, relationship score</li><li>Capture milestones and activities to meet objectives</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Onboarding Engineer</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Identify customer goals, what are they trying to achieve with our product</li><li>Define CX metrics, map to customer needs</li><li>Define timelines, focusing on moments of value</li><li>Capture additional areas to provide customer value (training, upsells)</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Template for external customer facing deck</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">CSAT/NPS is higher</span><span class="tag tag-metric">Customer relationship score is higher</span><span class="tag tag-metric">Usage/adoption increase</span><span class="tag tag-metric">Reduce Churn and Increase Upsells</span><span class="tag tag-metric">Number of CSQLs</span></div></div></div></div></article></div>
+        </section>
+        <section class="stage" id="lc-delivery-execution-complex-programs" style="--accent:#F1C232; --accent-text:#1a1a1a">
+          <div class="stage-header">
+            <h2>Delivery &amp; Execution (Complex Programs)</h2>
+            <span class="count">1 touchpoint</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="Customer|Executive Decision Maker|Key Contacts|Company employee|TAM|Technical Support (TS)|Professional Services (PS)"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Delivery &amp; Execution</h3><p class="trigger"><span class="label">Trigger</span>Project planning and delivery based on SOW as part of big programs; eg, CEM projects</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Execute project plan</li><li>Deliver first value</li><li>Build rapport with the client</li><li>Iterate until plan fully executed</li><li>Handover to TS before Launch (Go/No-go)</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Customer</span><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">Company employee</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Confirmation from the client that they can start using the system and the value they are getting by moving to us</li><li>Manage to SOW, timelines and agreed upon milestones and metrics</li><li>Manage changes in scope</li><li>Ask for online review or a MOV (moment of value)</li><li>Develop and maintain project plan based on SOW and agreed upon deliverables, metrics, etc.</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Update customer 360</span><span class="tag tag-outline">Update project plan</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">NPS Score is higher for year 1 clients</span></div></div></div><div class="celebration">&#127881; Moment of Value / Celebration</div></div></article></div>
+        </section>
+        <section class="stage" id="lc-adoption" style="--accent:#6AA84F; --accent-text:#ffffff">
+          <div class="stage-header">
+            <h2>ADOPTION</h2>
+            <span class="count">5 touchpoints</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="AE|TAM|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Update Customer 360 Weekly</h3><p class="trigger"><span class="label">Trigger</span>Weekly for TAM accounts, Qtly for Non-TAM accounts</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Provide dynamic view of the customer - updates  ensure that we provide an accurate view of what is currently going on with the account</li><li>Maintain continuity for handover purposes</li><li>Ensure that other parts of the organization have insights into the company</li><li>Aligned and complimentary to the account views provided by the AE</li><li>Provide dynamic view of the customer</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Capture the latest events, sentiment, updates from the customer</li><li>Capture critical and/or ongoing issues</li><li>Consult AE for input, review and share as needed with other internal parties</li><li>Update TAM and AE Sentiment</li><li>Update Risk Analysis</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Reduce Churn and Increase Upsells</span><span class="tag tag-metric">CSAT/NPS is higher</span></div></div></div></div></article><article class="card" data-roles="AE|TAM|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Value Advisory Assessment</h3><p class="trigger"><span class="label">Trigger</span>Monthly assessments, quarterly deep dives</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Continuously assess the value the customer is realizing, the state of satisfaction, utilization and catching and addessing all issues in a timely fashion</li><li>Validates the areas of usage for each part of the product / Policy area.</li><li>Uncovers areas of discussion to improve adoption and upsell</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Update customer 360 as needed</li><li>Touch point with customer</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Reducing churn</span><span class="tag tag-metric">CSAT/NPS is higher</span><span class="tag tag-metric">Usage/adoption increase</span></div></div><div class="field small"><span class="field-label">Digital Assets</span><p>VPA reports, report templates,</p></div></div></div></article><article class="card" data-roles="AE|TAM|Technical Support (TS)|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>EPS Analysis</h3><p class="trigger"><span class="label">Trigger</span>Monthly post Onboarding</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Increase visibility into consumption and utilization</li><li>Ability to intervene if necessary to determine what is causing the increase or drop in EPS</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Identify relevant reporting and systems required</li><li>Build or identify resource to build report to capture consumption data</li><li>Reach out to customer based on consumption data if necessary</li><li>Provide information to the AE and the OE</li><li>Provide summary based on template for CRM (not weekly) and for escalation as needed</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Overage Revenue increase</span><span class="tag tag-metric">Reducing churn</span></div></div><div class="field small"><span class="field-label">Digital Assets</span><p>Automate notices of overage</p></div></div></div></article><article class="card" data-roles="Key Contacts|AE|TAM|Technical Support (TS)|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Customer Surveys (NPS)</h3><p class="trigger"><span class="label">Trigger</span>3-4 times a year</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Gain insights into how the customer loyalty and satisfaction with SX to address potential issues and mitigate risks</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Follow up within 3 days after receiving a detractor score, or a comment on a NPS survey</li><li>Provide input on survey content</li><li>Coordinate with NPS survey team to increase customer engagement with the survey</li><li>Devise action plan for customer</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">NPS survey</span><span class="tag tag-outline">Email template</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">NPS</span></div></div><div class="field small"><span class="field-label">Digital Assets</span><p>Automated delivery</p></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|TAM|Technical Support (TS)|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Product Roadmap announcements</h3><p class="trigger"><span class="label">Trigger</span>Ad hoc meeting upon notification from product team that a new Roadmap is available and relevant to the customer</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Excite customers around upcoming features</li><li>Secure the renewal</li><li>Reduce churn risk and increase opportunities for upsell</li><li>Justification for price increase</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip" title="based on importance of update">Executive Decision Maker<sup>*</sup></span><span class="chip" title="based on importance of update">Key Contacts<sup>*</sup></span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Invite customers to group or individual webinars</li><li>Provide information during Quarterly Business Reviews</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">PPT Presentation Template</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Increased upsell</span><span class="tag tag-metric">Increased CSQL</span><span class="tag tag-metric">Increased Renewal Rate</span></div></div><div class="field small"><span class="field-label">Digital Assets</span><p>Marketing documents</p></div></div></div></article></div>
+        </section>
+        <section class="stage" id="lc-customer-value-management" style="--accent:#274E13; --accent-text:#ffffff">
+          <div class="stage-header">
+            <h2>Customer Value Management</h2>
+            <span class="count">5 touchpoints</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|Exec Sponsor|TAM|Professional Services (PS)"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Quarterly Business Reviews/EBR (QBR)</h3><p class="trigger"><span class="label">Trigger</span>Every qtr; TAM supported accounts</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Learn about customer priorities, needs</li><li>Demonstrate progress for customer initiatives / workstreams</li><li>Discuss product roadmaps and capture feedback</li><li>Review utilization</li><li>Share MOV</li><li>Introduce new products and services that could provide value to customer</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">Exec Sponsor</span><span class="chip">TAM</span><span class="chip">Professional Services (PS)</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Create agenda based on priorities, customer input, customer status and assign responsibility</li><li>Request input and feedback from customer as well as internal feedback</li><li>TAM will  pull in internal stakeholders as needed (Product, TS, etc)</li><li>Coordinate presentation creation across account team and internal resources</li><li>Coordinate date with customer, location (online/offline), attendance from customer and internal</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">PPT template for the meeting</span><span class="tag tag-outline">Email template for follow-up</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">CSAT/NPS is higher</span><span class="tag tag-metric">Customer relationship score is higher</span><span class="tag tag-metric"># of QBRs</span><span class="tag tag-metric">Usage/adoption increase</span><span class="tag tag-metric">Reduce Churn and Increase Upsells</span></div></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Key Contacts|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Digital Quarterly Business Reviews (QBR)</h3><p class="trigger"><span class="label">Trigger</span>Every qtr; Digital Accounts</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Learn about customer priorities, needs</li><li>Demonstrate progress for customer initiatives / workstreams</li><li>Discuss product roadmaps and capture feedback</li><li>Review utilization</li><li>Share MOV</li><li>Introduce new products and services that could provide value to customer</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Request input and feedback from customer as well as internal feedback</li><li>Automated QBR created and sent to customer</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">PPT template for the meeting</span><span class="tag tag-outline">Email template for follow-up</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">CSAT/NPS is higher</span><span class="tag tag-metric">Customer relationship score is higher</span><span class="tag tag-metric"># of QBRs</span><span class="tag tag-metric">Usage/adoption increase</span><span class="tag tag-metric">Reduce Churn and Increase Upsells</span></div></div><div class="field small"><span class="field-label">Digital Assets</span><p>Automated presentation</p></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|TAM|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Success Plan</h3><p class="trigger"><span class="label">Trigger</span>After a business review; new contract/initiative, renewal/expansion</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>A strategic plan to ensure the customer maximizes value beyond the scope of the original onboarding plan</li><li>Capture customer objectives, goals, and desired outcomes from purchasing and using our products/services</li><li>Plan how to achieve these objectives; how to measure achievement of outcomes (KPI)</li><li>Capture risks, gaps</li><li>Capture Health score, relationship score</li><li>Capture milestones and activities to meet objectives</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Identify customer goals, what are they trying to achieve with our product</li><li>Define CX metrics, map to customer needs</li><li>Define timelines, focusing on moments of value</li><li>Capture additional areas to provide customer value (training, upsells)</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Template</span><span class="tag tag-outline">Email template for Digital Success Plan</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">CSAT/NPS is higher</span><span class="tag tag-metric">Customer relationship score is higher</span><span class="tag tag-metric">Usage/adoption increase</span><span class="tag tag-metric">Reduce Churn and Increase Upsells</span><span class="tag tag-metric">Number of CSQLs</span></div></div></div></div></article><article class="card" data-roles="Key Contacts|TAM|Technical Support (TS)|Professional Services (PS)|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Product Training</h3><p class="trigger"><span class="label">Trigger</span>Significant feature changes/enhancements, following implementation, periodic sessions for new hires or other groups, lack of usage due to lack of product knowledge; TAM accounts only</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Ensure customer can utilize the product towards achieving their goal</li><li>Provide access to resources and tools to guide product utilization, both technical and educational</li><li>Increase adoption and utilization</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Key Contacts</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Provide input on how to best customize training to ensure relevance to customer goals and objectives</li><li>Engage and coordinate with customer to maximize attendance and relevance to audience</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Email invite</span><span class="tag tag-outline">Agenda</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">CSAT/NPS is higher</span><span class="tag tag-metric">Customer relationship score is higher</span><span class="tag tag-metric">Usage/adoption increase</span><span class="tag tag-metric">Reduce Churn and Increase Upsells</span><span class="tag tag-metric">Completion rate of tests and surveys</span></div></div><div class="field small"><span class="field-label">Digital Assets</span><p>Record sessions for digital touch - internal and external</p></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|TAM|Technical Support (TS)|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Collect Moments of Value</h3><p class="trigger"><span class="label">Trigger</span>When a semi-significant milestone for the customer is achieved; based on customer context and impact to BU, customer stakeholders, end users, etc.</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Capture value for the customer in a formal manner</li><li>Support your client stakeholders to prove the impact they had on their own organization</li><li>Secure the renewal - reminder of value being brought to the table</li><li>To help marketing identify additional advocates and references</li><li>To feed sales additional value stories and expand the sales references pool</li><li>Results in quantificable outcome/result</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Capture value for the customer in a formal manner</li><li>MOV playbook</li><li>Send documentation to client of the MOV</li><li>Identify and Celebrate Key MOVs</li><li>Document MOV in salesforce and TAM tool</li><li>Engage marketing for customer advocacy opps, white papers, etc.</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">MOV Playbook</span><span class="tag tag-outline">Budget for Swag</span><span class="tag tag-outline">MOV template</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Reduce Churn and Increase Renewals</span><span class="tag tag-metric">CSAT/NPS is higher</span><span class="tag tag-metric">Increased References</span><span class="tag tag-metric">Improved Health Score</span><span class="tag tag-metric">Relationship to lower churn higher retention</span></div></div></div><div class="celebration">&#127881; Moment of Value / Celebration</div></div></article></div>
+        </section>
+        <section class="stage" id="lc-revenue-risk-management-renewals" style="--accent:#741B47; --accent-text:#ffffff">
+          <div class="stage-header">
+            <h2>Revenue Risk Management &amp; Renewals</h2>
+            <span class="count">4 touchpoints</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="AE|TAM|Technical Support (TS)|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Churn Risk Score/Index</h3><p class="trigger"><span class="label">Trigger</span>As Needed/Twice a quarter</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Identify customers that are at high risk of stop doing business with us</li><li>Used across customers to help establish baselines, reliability, prediction of churn</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Identify churn risk factors/triggers to compose index</li><li>Monitor for risks to the account based on factors identifiied</li><li>Adjust and evolve to better capture churn risk</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">% of customers saved is higher</span><span class="tag tag-metric">% of low utilization is reduced</span></div></div></div><div class="celebration">&#127881; Moment of Value / Celebration</div></div></article><article class="card" data-roles="AE|TAM|Technical Support (TS)|Professional Services (PS)|Onboarding Engineer|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Risk Playbooks</h3><p class="trigger"><span class="label">Trigger</span>Customer flagged by churn risk score</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Activate standard procedures based on common risk triggers (such as a detractor NPS score)</li><li>Provide mitigation to risk identified - red to yellow, red to green</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span><span class="chip">Onboarding Engineer</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Assess the risk</li><li>Determine the correct play to mitigate the risk, identify the correct stakeholders</li><li>Execute the play as outlined in the playbook but adapted to the specific customer situation</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Email template</span><span class="tag tag-outline">Risk playbook - process, framework, key activities</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">% of customers saved is higher</span><span class="tag tag-metric">% of low utilization is reduced</span></div></div></div></div></article><article class="card" data-roles="AE|CX Leadership|Exec Sponsor|TAM|Technical Support (TS)|Professional Services (PS)|Onboarding Engineer|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Code Red</h3><p class="trigger"><span class="label">Trigger</span>Customer is identified as a immenant churn risk</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Inform management to intervene in order to rescue the relationship</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">CX Leadership</span><span class="chip">Exec Sponsor</span><span class="chip">TAM</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span><span class="chip">Onboarding Engineer</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Review customer escalation, issue(s) at hand, internal and external parties involved,</li><li>Assemble the cross-functional team to address the customer issues</li><li>Setup meeting with internal stakeholders to determine plan of action</li><li>Coordinate updates internally and externally</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Email template</span><span class="tag tag-outline">Code Red framework/playbook</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">% of customers saved is higher</span><span class="tag tag-metric">% of low utilization is reduced</span></div></div></div><div class="celebration">&#127881; Moment of Value / Celebration</div></div></article><article class="card" data-roles="AE|TAM|Professional Services (PS)|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Contract Renewal support</h3><p class="trigger"><span class="label">Trigger</span>6 months prior to Renewal (interm and expiring)</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Assist the AE with the renewal by providing input on customer technical relationship</li><li>Leverage the relationship the TAM has prior to the renewal phase to help the AE establish rapport</li><li>Digital - Provide notice to customer on pending renewal</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Professional Services (PS)</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>TAM/Digital TAM reaches out to the customer and informally finds out the customer&#x27;s propensity to renew a few months ahead of the renewal date</li><li>If AE is new or doesnt have a strong relationship with the account, the TAM helps introduce them to the appropriate resources ahead of time</li><li>TAM shares their forecast and success plan with the AE and highlights any reasons for risk of renewal or opportunities for upsell</li><li>AE reaches out to the customer a few months before the renewal</li><li>AE negotiates contract and renewal terms</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Average Revenue per Customer is higher</span><span class="tag tag-metric">Hgher retention rate</span></div></div></div></div></article></div>
+        </section>
+        <section class="stage" id="lc-expansion-existing-customer-deals" style="--accent:#7B4900; --accent-text:#ffffff">
+          <div class="stage-header">
+            <h2>EXPANSION &amp; EXISTING CUSTOMER DEALS</h2>
+            <span class="count">1 touchpoint</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="Executive Decision Maker|Key Contacts|AE|TAM|Professional Services (PS)|Digital CX"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>CSQL</h3><p class="trigger"><span class="label">Trigger</span>Based on a specific need or opportunity from a customer; could happen at any point in journey</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Identify additional features, product, features, solutions to address a customer need</li><li>Drive expansion and revenue</li><li>Maximize value for customer using our products and services</li><li>Identify upsells for Sales</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Key Contacts</span><span class="chip">AE</span><span class="chip">TAM</span><span class="chip">Professional Services (PS)</span><span class="chip">Digital CX</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Vetted lead that TAM introduces to Sales</li><li>Document lead</li><li>Qualify lead based on CX best practices process</li><li>Track leads through sales stages to close.</li><li>Post-mortem to determine efficacy of process and possible changes to process</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Qualification/validation process</span><span class="tag tag-outline">Internal training materials on key words and phrases to identify opportunities for add&#x27;l products.</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric"># of CSQL</span><span class="tag tag-metric">Conversion Rate of CSQL to opportunity</span><span class="tag tag-metric"># of CSQL Closed / Won</span><span class="tag tag-metric">Revenue from SALes</span><span class="tag tag-metric">Number of saved renewals.</span></div></div></div></div></article></div>
+        </section></main>
+<main id="view-onboarding">
+        <section class="stage" id="ob-sales" style="--accent:#660000; --accent-text:#ffffff">
+          <div class="stage-header">
+            <h2>SALES</h2>
+            <span class="count">2 touchpoints</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="Business Sponsor/Champion|Program Lead/Manager|AE|HERE Exec Sponsor|Customer Success Manager|Onboarding Manager"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Intro to Onboarding (Customer Introduction per onboarding framework)</h3><p class="trigger"><span class="label">Trigger</span>When the customer provides a verbal go</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Begin establishing rapport with the client</li><li>Align expectations on onboarding with the client</li><li>Improve customer satisfaction</li><li>Reduce onboarding risks</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Business Sponsor/Champion</span><span class="chip">Program Lead/Manager</span><span class="chip">AE</span><span class="chip">HERE Exec Sponsor</span><span class="chip">Customer Success Manager</span><span class="chip">Onboarding Manager</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Sales rep coordinates an initial call with the onboading manager</li><li>AE leads call with Customer</li><li>AE sends a follow up email</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Email Template</span><span class="tag tag-outline">Questionnaire</span><span class="tag tag-outline">Agenda</span><span class="tag tag-outline">Slide Deck</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span><span class="tag tag-system">SNOW</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">% of product registration completed (prior to kick off calls)</span><span class="tag tag-metric">Onboarding CSAT score</span><span class="tag tag-metric">NPS Score is higher for year 1 clients</span></div></div><div class="field small"><span class="field-label">Education / Training</span><div class="chips"><span class="tag tag-outline">Industry specific Knowlege</span></div></div></div></div></article><article class="card" data-roles="AE|Partner Manager|HERE Exec Sponsor|Business Solution Architect - BSA|CSM LT (leadership team)|Customer Success Manager|Technical Support (TS)|Professional Services (PS)|Onboarding Manager|Product Management|Legal"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Sales Handover to CSM/OE</h3><p class="trigger"><span class="label">Trigger</span>After contract signature, AE opens a onboarding request</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Highlight inherent risks early</li><li>Understand customer desired outcomes and align on how we&#x27;re going to meet them</li><li>Avoid delays in onboarding</li><li>Build significant relationship with the customers early</li><li>CSM/OE develops account awareness, background, etc.</li><li>Clear identification of stakeholders on customer side</li><li>Identify solutions sold, length of contract, etc.</li><li>Business priorities, timelines, reporting, invoicing cycles and SLA committments</li><li>OE initiates customer portal request</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip">Partner Manager</span><span class="chip">HERE Exec Sponsor</span><span class="chip">Business Solution Architect - BSA</span><span class="chip" title="Tier 1 or 2">CSM LT (leadership team)<sup>*</sup></span><span class="chip">Customer Success Manager</span><span class="chip">Technical Support (TS)</span><span class="chip" title="Custom Solutions only">Professional Services (PS)<sup>*</sup></span><span class="chip">Onboarding Manager</span><span class="chip" title="Tier 1">Product Management<sup>*</sup></span><span class="chip" title="Tier 1">Legal<sup>*</sup></span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Sales Rep Fills out the sales handover form</li><li>Form sent to OE for review (copying CSM)</li><li>AE schedules a call with the Onboarding team and CSM team to discuss form related questions (follow up)</li><li>OE follows up with account executive or PS team to ensure all documents are collected (SOW, etc)</li><li>CSM - Update critical customer data fields in the CS system</li><li>OE completes checklist and marks related task complete (CSM kept in the loop)</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Sales Handoff Questionnaire</span><span class="tag tag-outline">Customer Score from AE</span><span class="tag tag-outline">Handover Agenda (Governance Model, Questions to ask)</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span><span class="tag tag-system">SNOW</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Sales handoffs/Sales deals won</span><span class="tag tag-metric">% Sales Handoff Questionnaires Completed</span><span class="tag tag-metric">CSAT increase</span></div></div></div></div></article></div>
+        </section>
+        <section class="stage" id="ob-onboarding" style="--accent:#204559; --accent-text:#ffffff">
+          <div class="stage-header">
+            <h2>Onboarding</h2>
+            <span class="count">7 touchpoints</span>
+          </div>
+          <div class="card-row"><article class="card" data-roles="Business Sponsor/Champion|Program Lead/Manager|AE|Business Solution Architect - BSA|Customer Success Manager|Technical Support (TS)|Professional Services (PS)|Onboarding Manager"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Implement Customer Customer Portal</h3><p class="trigger"><span class="label">Trigger</span>Following the Sales Handover and assignment of OE</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Customer is able to view products and services as provided by the contract, usage, preonboarding materials and activities (onboarding plan included as it is built out)</li><li>Increase customer awareness to onboarding process</li><li>Decrease time to first value</li><li>Decrease time to adoption and revenue</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Business Sponsor/Champion</span><span class="chip">Program Lead/Manager</span><span class="chip">AE</span><span class="chip">Business Solution Architect - BSA</span><span class="chip">Customer Success Manager</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span><span class="chip">Onboarding Manager</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Create portal account based on contract</li><li>Send out personal/professional OE email with guidelines to customer, credentials</li><li>Email sent out to each customer stakeholder who will be involved in the onboarding, all personalized</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Email termplate</span><span class="tag tag-outline">Sales handoff questionaire</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span><span class="tag tag-system">SNOW</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">TIme to onboarding</span><span class="tag tag-metric">Customer portal utilization</span><span class="tag tag-metric">CSAT increase</span></div></div><div class="field small"><span class="field-label">Education / Training</span><div class="chips"><span class="tag tag-outline">Self serve materials on how to use the customer portal</span></div></div></div></div></article><article class="card" data-roles="AE|Business Solution Architect - BSA|CSM LT (leadership team)|Customer Success Manager|Technical Support (TS)|Professional Services (PS)|Onboarding Manager|Product Management"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Pre-Onboarding 
+[Internal Activity]</h3><p class="trigger"><span class="label">Trigger</span>The Handover from Sales to Onboarding and CSM teams has been performed &amp; customer portal is created</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Create an onboarding plan</li><li>Engage and align all resources</li><li>Align on Onboarding Kick Off</li><li>Document technical SOW</li><li>Capture milestones, KPIs, dependencies, deliverables</li><li>High-level solution discussion</li><li>Customer top 3 priorities</li><li>Logistics</li><li>Assemble onboarding team</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">AE</span><span class="chip" title="for custom deployments">Business Solution Architect - BSA<sup>*</sup></span><span class="chip">CSM LT (leadership team)</span><span class="chip">Customer Success Manager</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span><span class="chip">Onboarding Manager</span><span class="chip">Product Management</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>OE and CSM meet to review preonboarding document</li><li>Review handover questionaire, pull relevant info, with follow-up as needed</li><li>OE assigns and notifies additional onboaring team members</li><li>Define MVP (First Value to be delivered defined) ensuring our technology can support the Customer MVP; formed with customer input</li><li>Technical Statement of Work (TSOW) created by OE</li><li>Capture risks identified that could prevent from obtaining desired outcomes</li><li>Identify SLA commitments: latency, response time, availability, regional coverage, BHCA,RPS, business continuity (failover), Security, Management and operations of the services</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Onboarding checklist</span><span class="tag tag-outline">TSOW template</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CS Platform</span><span class="tag tag-system">SNOW</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Onboarding CSAT score</span><span class="tag tag-metric">NPS Score is higher for year 1 clients</span></div></div><div class="field small"><span class="field-label">Education / Training</span><div class="chips"><span class="tag tag-outline">Identify relevant training material for customer</span></div></div></div></div></article><article class="card" data-roles="Business Sponsor/Champion|Program Lead/Manager|AE|Inside Sales|Partner Manager|Business Solution Architect - BSA|Customer Success Manager|Onboarding Manager|Product Management"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Onboarding Customer Introduction (Onboarding alignment and kickoff)</h3><p class="trigger"><span class="label">Trigger</span>The onboarding manager has all the artifacts that constitute the onboarding plan ready</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Onboarding journey presented to the Customer</li><li>Onboarding pre-requisites including credentials for the Customer shared and explained</li><li>Technical Onboarding scope detailed, date agreed upon</li><li>Develop customer accountability - Customer dependencies and deliverables agreed upon</li><li>Align expectations and mitgate risks early</li><li>Align on key dates (education, FVD etc)</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Business Sponsor/Champion</span><span class="chip">Program Lead/Manager</span><span class="chip">AE</span><span class="chip">Inside Sales</span><span class="chip">Partner Manager</span><span class="chip">Business Solution Architect - BSA</span><span class="chip">Customer Success Manager</span><span class="chip">Onboarding Manager</span><span class="chip">Product Management</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Onboarding journey presented to the Customer by OE</li><li>Confirm success criteria, with milestones and KPIs, with customer</li><li>Confirm timelines and deliverables with customer</li><li>Objectives, dependencies and risks are identified are acknowledged by both parties</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Follow-up emal after onboarding session</span><span class="tag tag-outline">Onboarding survey</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span><span class="tag tag-system">SNOW</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Time to onboard, i.e. time between contract signature and “Onboarding Alignment and kick off”</span><span class="tag tag-metric">Decrease time to revenue</span><span class="tag tag-metric">Increase Revenue</span></div></div><div class="field small"><span class="field-label">Education / Training</span><div class="chips"><span class="tag tag-outline">Includes an education component (incl end user training, and possibly train the trainer education program)</span></div></div></div></div></article><article class="card" data-roles="Business Sponsor/Champion|Program Lead/Manager|Customer Success Manager|Technical Support (TS)|Onboarding Manager|Digital Success"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Technical Onboarding (user training)</h3><p class="trigger"><span class="label">Trigger</span>Intro call, registration and questionnaire is complete</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Educate customer on product capabilities</li><li>Provide hands-on technical training to customer</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Business Sponsor/Champion</span><span class="chip">Program Lead/Manager</span><span class="chip">Customer Success Manager</span><span class="chip">Technical Support (TS)</span><span class="chip">Onboarding Manager</span><span class="chip">Digital Success</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Begin sequence email with training suggestions, resources etc</li><li>Invite to related webinars, online community discussions, live user events etc. related to their use case</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Email Sequence template</span><span class="tag tag-outline">Email templates for event invitations</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Participation Rate</span><span class="tag tag-metric">Open/Click Rate</span><span class="tag tag-metric">Customer Value Score</span><span class="tag tag-metric"># Training completed</span></div></div><div class="field small"><span class="field-label">Education / Training</span><div class="chips"><span class="tag tag-outline">List of recommended training</span></div></div></div></div></article><article class="card" data-roles="Executive Decision Maker|Business Sponsor/Champion|Program Lead/Manager|AE|HERE Exec Sponsor|CSM LT (leadership team)|Customer Success Manager|Technical Support (TS)|Professional Services (PS)|Onboarding Manager"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Implementation and Value Delivery</h3><p class="trigger"><span class="label">Trigger</span>Following the onboarding alignment and kickoff and technical onboarding (technical user training)</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Co-Execute onboarding plan</li><li>DEliver first value</li><li>Build rapport with the client</li><li>Iterate until plan fully executed</li><li>Handover to CS/TS before Launch (Go/No-go)</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Executive Decision Maker</span><span class="chip">Business Sponsor/Champion</span><span class="chip">Program Lead/Manager</span><span class="chip">AE</span><span class="chip">HERE Exec Sponsor</span><span class="chip">CSM LT (leadership team)</span><span class="chip">Customer Success Manager</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span><span class="chip">Onboarding Manager</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Get confirmation from your manager</li><li>Confirmation from the client that they can start using the system and the value they are getting by moving to us</li><li>Send celebratory note and &quot;cake&quot;</li><li>Ask for online review or a MOV (moment of value)</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Talk Track</span><span class="tag tag-outline">Message template</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">NPS Score is higher for year 1 clients</span><span class="tag tag-metric">Onboarding CSAT score</span><span class="tag tag-metric"># of MOVs</span></div></div></div><div class="celebration">&#127881; Moment of Value / Celebration</div></div></article><article class="card" data-roles="Business Sponsor/Champion|Program Lead/Manager|HERE Exec Sponsor|Customer Success Manager|Technical Support (TS)|Professional Services (PS)|Onboarding Manager"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>External/Internal Bi-Weekly/Timely Check Ins</h3><p class="trigger"><span class="label">Trigger</span>After welcome process is complete through completion of implementation</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Raise pre-implementation risks</li><li>Keep communication lines open with the client till implantation starts</li><li>Attend meetings during implementation to keep updated on risks</li><li>Visibility to process issues and ability to improve processes</li><li>CSM is informed during implementation that could help mitigate earlier</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Business Sponsor/Champion</span><span class="chip">Program Lead/Manager</span><span class="chip">HERE Exec Sponsor</span><span class="chip">Customer Success Manager</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span><span class="chip">Onboarding Manager</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Reach out to client every two weeks to follow up with open items</li><li>Provide update on delays</li><li>Invite to related webinars, online community discussions, live user events etc. related to their use case</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">Email Template - for handling delays</span><span class="tag tag-outline">Email template - for handling open items</span><span class="tag tag-outline">Policy for outreach cadence till implementation starts</span><span class="tag tag-outline">Policy for outreach cadence during implementation</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">% Risks mitigated successfully</span><span class="tag tag-metric">% Onboarding completed successfully</span><span class="tag tag-metric"># of celebration cakes sent within 1-2 weeks of completion</span></div></div></div></div></article><article class="card" data-roles="Business Sponsor/Champion|Program Lead/Manager|AE|CSM LT (leadership team)|Customer Success Manager|Technical Support (TS)|Professional Services (PS)|Onboarding Manager|Product Management"><button class="card-head" type="button" onclick="toggleCard(this)"><h3>Launch (Go / No-Go)</h3><p class="trigger"><span class="label">Trigger</span>The implementation and delivery phase specified in the onboarding plan has been co-executed. The Customer and HERE are ready to meet and decide on the readiness for Launch</p><span class="chev" aria-hidden="true">&#8250;</span></button><div class="card-body"><div class="field"><span class="field-label">Objectives</span><ul><li>Determine with customer and HERE if solution is ready to adopt, launch operate and support</li><li>The tollgate review has three possible outcomes:
+Not Launch: Continue with &quot;Failure Analysis Postmortem&quot; 
+Postpone Launch: Continue with &quot;Remove Launch Blockers&quot; Launch: Continue with &quot;Adopt&quot;</li></ul></div><div class="field"><span class="field-label">Who's Involved</span><div class="chips"><span class="chip">Business Sponsor/Champion</span><span class="chip">Program Lead/Manager</span><span class="chip">AE</span><span class="chip">CSM LT (leadership team)</span><span class="chip">Customer Success Manager</span><span class="chip">Technical Support (TS)</span><span class="chip">Professional Services (PS)</span><span class="chip">Onboarding Manager</span><span class="chip">Product Management</span></div></div><div class="field"><span class="field-label">Key Activities</span><ol><li>Create tollgate review record with agreed next steps, owners and due dates</li><li>If launch is no-go (failure), create postmortem review record with reason for failure findings and action plan to address these and prevent reoccurrence.</li><li>If postponed, the Onboarding team conducts an analysis of the findings, works with all stakeholders including the Customer, puts in place a mitigation plan and executes it to remove those obstacles - back to tollgate progess.</li><li>Customer provides feedback, i.e. onboarding CSAT survey is conducted</li></ol></div><div class="meta-grid"><div class="field small"><span class="field-label">Templates &amp; Collateral</span><div class="chips"><span class="tag tag-outline">CSAT survey</span></div></div><div class="field small"><span class="field-label">Systems</span><div class="chips"><span class="tag tag-system">CRM</span><span class="tag tag-system">CS Platform</span><span class="tag tag-system">SNOW</span></div></div><div class="field small"><span class="field-label">Success Metrics</span><div class="chips"><span class="tag tag-metric">Onboarding ratio - # Onboarded Customers/# Customers in commercial operation</span><span class="tag tag-metric">CSAT</span></div></div></div></div></article></div>
+        </section></main>
+
+<footer>
+  Customer Success Lifecycle Journey Map &mdash; portfolio sample. Names and internal tool references have been
+  generalized for public sharing; process structure and content reflect real Customer Success program design work.
+</footer>
+
+<script>
+function toggleCard(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+function showView(id, btn) {
+  document.getElementById('view-lifecycle').style.display = id === 'view-lifecycle' ? 'block' : 'none';
+  document.getElementById('view-onboarding').style.display = id === 'view-onboarding' ? 'block' : 'none';
+  document.getElementById('pills-lifecycle').style.display = id === 'view-lifecycle' ? 'flex' : 'none';
+  document.getElementById('pills-onboarding').style.display = id === 'view-onboarding' ? 'flex' : 'none';
+  document.querySelectorAll('.view-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  populateRoleFilter();
+  document.getElementById('roleFilter').value = '';
+}
+function populateRoleFilter() {
+  const activeView = document.getElementById('view-lifecycle').style.display !== 'none' ? 'view-lifecycle' : 'view-onboarding';
+  const cards = document.querySelectorAll('#' + activeView + ' .card');
+  const roles = new Set();
+  cards.forEach(c => {
+    c.classList.remove('dimmed');
+    (c.dataset.roles || '').split('|').forEach(r => r && roles.add(r));
+  });
+  const sel = document.getElementById('roleFilter');
+  sel.innerHTML = '<option value="">Filter by role&hellip;</option>' +
+    [...roles].sort().map(r => `<option value="${r}">${r}</option>`).join('');
+}
+function filterByRole() {
+  const val = document.getElementById('roleFilter').value;
+  const activeView = document.getElementById('view-lifecycle').style.display !== 'none' ? 'view-lifecycle' : 'view-onboarding';
+  document.querySelectorAll('#' + activeView + ' .card').forEach(c => {
+    if (!val) { c.classList.remove('dimmed'); return; }
+    const roles = (c.dataset.roles || '').split('|');
+    c.classList.toggle('dimmed', !roles.includes(val));
+  });
+}
+populateRoleFilter();
+</script>
+
+</body>
+</html>
