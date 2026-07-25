@@ -9,3 +9,5 @@ has its own theme, like Onboarding, Adoption, and Expansion. Within each section
 Within each sub-activity, the specifics of who, what, when, where, and why are established. Eventually, each of these sub-activities would be
 expanded out into its own detailed playbook that dives into the specifics of how that activity is completed, including any tools or assets 
 that may be needed. 
+
+*Please note that this is just a sample and is in no way fully complete but serves to give an idea of what's possible.
